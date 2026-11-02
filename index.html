@@ -120,26 +120,37 @@
   /* ---------- team ---------- */
   .team{ padding-block:0 clamp(52px, 9vw, 88px); }
   .team .shell{ display:flex; flex-direction:column; gap:30px; }
-  .team .intro{ font-size:clamp(17px,2.2vw,19px); max-width:56ch; margin-top:-14px; }
-  .people{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; }
+  .team h2{
+    font-size:clamp(24px,3.4vw,32px); font-weight:700; letter-spacing:-.02em; line-height:1.2;
+    max-width:24ch; margin-top:-16px;
+  }
+  .people{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px; }
   @media (max-width:700px){ .people{ grid-template-columns:1fr; } }
-  .person{ gap:6px; }
-  .person img{
-    width:112px; height:112px; border-radius:50%; object-fit:cover; display:block;
-    background:var(--border); margin-bottom:12px;
+  .person{ padding:0; gap:0; overflow:hidden; border-radius:20px; }
+  .person .photo{ position:relative; aspect-ratio:5/4; background:var(--indigo); }
+  .person .photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .person .photo::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(to top, rgba(26,19,56,.94) 0%, rgba(26,19,56,.6) 24%, rgba(26,19,56,0) 50%);
   }
-  .person h3{ font-size:21px; font-weight:600; }
+  .person .who{ position:absolute; left:26px; right:26px; bottom:22px; z-index:1; }
+  .person h3{ font-size:clamp(22px,2.6vw,26px); font-weight:700; letter-spacing:-.015em; color:#FFFFFF; }
   .person .role{
-    font-family:'Familjen Grotesk',sans-serif; font-size:14.5px; font-weight:600;
-    color:var(--violet-ink);
+    font-family:'Familjen Grotesk',sans-serif; font-size:13px; font-weight:600;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--lilac-dim); margin-top:2px;
   }
-  .person p{ margin-top:6px; }
+  .person .body{ padding:22px 26px 26px; display:flex; flex-direction:column; gap:18px; flex:1; }
+  .person .body p{ color:var(--ink); font-size:16px; }
   .person .li{
-    align-self:flex-start; margin-top:8px;
-    font-size:15px; font-weight:500; text-decoration:none;
+    margin-top:auto; align-self:flex-start;
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Familjen Grotesk',sans-serif; font-weight:600; font-size:14.5px;
+    color:var(--indigo); text-decoration:none;
+    border:1.5px solid var(--border); border-radius:99px; padding:8px 16px 8px 12px; min-height:40px;
   }
-  .person .li:hover{ text-decoration:underline; }
+  .person .li:hover{ border-color:var(--violet); color:var(--violet-ink); }
   .person .li:focus-visible{ outline:2px solid var(--violet); outline-offset:3px; }
+  .person .li svg{ width:16px; height:16px; }
 
   /* ---------- contact ---------- */
   .contact{ padding-block:0 clamp(56px, 10vw, 96px); }
@@ -282,30 +293,42 @@
         <span data-lang="nl">Wie wij zijn</span>
         <span data-lang="en">Who we are</span>
       </div>
-      <p class="intro">
+      <h2>
         <span data-lang="nl">Wij hebben eerder samen een bedrijf opgebouwd en verkocht. Kavio is ons tweede.</span>
         <span data-lang="en">We built and sold a company together before. Kavio is our second.</span>
-      </p>
+      </h2>
       <div class="people">
         <div class="card person">
-          <img src="lev.jpg" alt="Lev Zorin" width="112" height="112" loading="lazy">
-          <h3>Lev Zorin</h3>
-          <div class="role">Co-founder · CEO</div>
-          <p>
-            <span data-lang="nl">Leidt de Premium-marketplace van Uber in EMEA, met ruim $3,5 mld aan gross bookings. Ex-inDrive.</span>
-            <span data-lang="en">Leads Uber's Premium marketplace in EMEA, with over $3.5B in gross bookings. Ex-inDrive.</span>
-          </p>
-          <a class="li" href="https://www.linkedin.com/in/zorinlev" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <div class="photo">
+            <img src="lev.jpg" alt="Lev Zorin" width="1000" height="800" loading="lazy">
+            <div class="who">
+              <h3>Lev Zorin</h3>
+              <div class="role">Co-founder · CEO</div>
+            </div>
+          </div>
+          <div class="body">
+            <p>
+              <span data-lang="nl">Leidt de Premium-marketplace van Uber in EMEA, met ruim $3,5 mld aan gross bookings. Ex‑inDrive.</span>
+              <span data-lang="en">Leads Uber's Premium marketplace in EMEA, with over $3.5B in gross bookings. Ex‑inDrive.</span>
+            </p>
+            <a class="li" href="https://www.linkedin.com/in/zorinlev" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3.6 6h2v6.5h-2zM4.6 2.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3zM7 6h1.9v.9h.03c.27-.5.92-1.04 1.9-1.04 2.03 0 2.4 1.33 2.4 3.07v3.57h-2V9.3c0-.75-.01-1.72-1.05-1.72-1.05 0-1.21.82-1.21 1.66v3.26H7z"/></svg>LinkedIn</a>
+          </div>
         </div>
         <div class="card person">
-          <img src="anton.jpg" alt="Anton Sluch" width="112" height="112" loading="lazy">
-          <h3>Anton Sluch</h3>
-          <div class="role">Co-founder · CPO</div>
-          <p>
-            <span data-lang="nl">Bouwde als GM Zuidoost-Azië bij Algonova in 7 maanden een bedrijf op van nul tot $1 mln ARR. Ex-DiDi, ex-Yango.</span>
-            <span data-lang="en">As GM for South-East Asia at Algonova, built a business from scratch to $1M ARR in 7 months. Ex-DiDi, ex-Yango.</span>
-          </p>
-          <a class="li" href="https://www.linkedin.com/in/antonsluch" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <div class="photo">
+            <img src="anton.jpg" alt="Anton Sluch" width="1000" height="800" loading="lazy">
+            <div class="who">
+              <h3>Anton Sluch</h3>
+              <div class="role">Co-founder · CPO</div>
+            </div>
+          </div>
+          <div class="body">
+            <p>
+              <span data-lang="nl">Bouwde als GM Zuidoost-Azië bij Algonova in 7 maanden een bedrijf op van nul tot $1 mln ARR. Ex‑DiDi, ex‑Yango.</span>
+              <span data-lang="en">As GM for South-East Asia at Algonova, built a business from scratch to $1M ARR in 7 months. Ex‑DiDi, ex‑Yango.</span>
+            </p>
+            <a class="li" href="https://www.linkedin.com/in/antonsluch" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3.6 6h2v6.5h-2zM4.6 2.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3zM7 6h1.9v.9h.03c.27-.5.92-1.04 1.9-1.04 2.03 0 2.4 1.33 2.4 3.07v3.57h-2V9.3c0-.75-.01-1.72-1.05-1.72-1.05 0-1.21.82-1.21 1.66v3.26H7z"/></svg>LinkedIn</a>
+          </div>
         </div>
       </div>
     </div>

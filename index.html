@@ -122,8 +122,9 @@
   .team .shell{ display:flex; flex-direction:column; gap:30px; }
   .team h2{
     font-size:clamp(24px,3.4vw,32px); font-weight:700; letter-spacing:-.02em; line-height:1.2;
-    max-width:24ch; margin-top:-16px;
+    margin-top:-16px;
   }
+  .team h2 .soft{ color:var(--muted); }
   .people{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px; }
   @media (max-width:700px){ .people{ grid-template-columns:1fr; } }
   .person{ padding:0; gap:0; overflow:hidden; border-radius:20px; }
@@ -298,8 +299,8 @@
         <span data-lang="en">Who we are</span>
       </div>
       <h2>
-        <span data-lang="nl">Wij hebben eerder samen een bedrijf opgebouwd en verkocht. Kavio is ons tweede.</span>
-        <span data-lang="en">We built and sold a company together before. Kavio is our second.</span>
+        <span data-lang="nl">Wij zijn online-to-offline operators met ervaring in uiteenlopende markten en sectoren. <span class="soft">Serieondernemers met een bewezen gezamenlijk trackrecord.</span></span>
+        <span data-lang="en">We are online-to-offline operators with experience across many markets and industries. <span class="soft">Serial entrepreneurs with a proven track record together.</span></span>
       </h2>
       <div class="people">
         <div class="card person">

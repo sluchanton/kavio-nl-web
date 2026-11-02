@@ -117,6 +117,30 @@
   .card h3{ font-size:19px; font-weight:600; }
   .card p{ color:var(--muted); font-size:15.5px; }
 
+  /* ---------- team ---------- */
+  .team{ padding-block:0 clamp(52px, 9vw, 88px); }
+  .team .shell{ display:flex; flex-direction:column; gap:30px; }
+  .team .intro{ font-size:clamp(17px,2.2vw,19px); max-width:56ch; margin-top:-14px; }
+  .people{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; }
+  @media (max-width:700px){ .people{ grid-template-columns:1fr; } }
+  .person{ gap:6px; }
+  .person img{
+    width:112px; height:112px; border-radius:50%; object-fit:cover; display:block;
+    background:var(--border); margin-bottom:12px;
+  }
+  .person h3{ font-size:21px; font-weight:600; }
+  .person .role{
+    font-family:'Familjen Grotesk',sans-serif; font-size:14.5px; font-weight:600;
+    color:var(--violet-ink);
+  }
+  .person p{ margin-top:6px; }
+  .person .li{
+    align-self:flex-start; margin-top:8px;
+    font-size:15px; font-weight:500; text-decoration:none;
+  }
+  .person .li:hover{ text-decoration:underline; }
+  .person .li:focus-visible{ outline:2px solid var(--violet); outline-offset:3px; }
+
   /* ---------- contact ---------- */
   .contact{ padding-block:0 clamp(56px, 10vw, 96px); }
   .panel{
@@ -247,6 +271,41 @@
             <span data-lang="nl">Wij werken graag samen met partijen die actief zijn in verhuur en beheer in Nederland.</span>
             <span data-lang="en">We work with people and companies active in renting and property management in the Netherlands.</span>
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team">
+    <div class="shell">
+      <div class="eyebrow">
+        <span data-lang="nl">Wie wij zijn</span>
+        <span data-lang="en">Who we are</span>
+      </div>
+      <p class="intro">
+        <span data-lang="nl">Wij hebben eerder samen een bedrijf opgebouwd en verkocht. Kavio is ons tweede.</span>
+        <span data-lang="en">We built and sold a company together before. Kavio is our second.</span>
+      </p>
+      <div class="people">
+        <div class="card person">
+          <img src="lev.jpg" alt="Lev Zorin" width="112" height="112" loading="lazy">
+          <h3>Lev Zorin</h3>
+          <div class="role">Co-founder · CEO</div>
+          <p>
+            <span data-lang="nl">Leidt de Premium-marketplace van Uber in EMEA, met ruim $3,5 mld aan gross bookings. Ex-inDrive.</span>
+            <span data-lang="en">Leads Uber's Premium marketplace in EMEA, with over $3.5B in gross bookings. Ex-inDrive.</span>
+          </p>
+          <a class="li" href="https://www.linkedin.com/in/zorinlev" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+        <div class="card person">
+          <img src="anton.jpg" alt="Anton Sluch" width="112" height="112" loading="lazy">
+          <h3>Anton Sluch</h3>
+          <div class="role">Co-founder · CPO</div>
+          <p>
+            <span data-lang="nl">Bouwde als GM Zuidoost-Azië bij Algonova in 7 maanden een bedrijf op van nul tot $1 mln ARR. Ex-DiDi, ex-Yango.</span>
+            <span data-lang="en">As GM for South-East Asia at Algonova, built a business from scratch to $1M ARR in 7 months. Ex-DiDi, ex-Yango.</span>
+          </p>
+          <a class="li" href="https://www.linkedin.com/in/antonsluch" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
     </div>

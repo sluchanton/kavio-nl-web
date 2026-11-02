@@ -155,6 +155,25 @@
     display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
     color:var(--muted); font-size:14px;
   }
+  /* ---------- cookie notice ---------- */
+  .cookies{
+    position:fixed; left:0; right:0; bottom:0; z-index:10;
+    background:var(--indigo-deep); color:var(--lilac);
+    border-top:1px solid rgba(240,237,250,.12);
+    padding-block:16px calc(16px + env(safe-area-inset-bottom, 0px));
+    font-size:14.5px; line-height:1.5;
+  }
+  .cookies[hidden]{ display:none; }
+  .cookies .shell{ display:flex; align-items:center; justify-content:space-between; gap:14px 22px; flex-wrap:wrap; }
+  .cookies p{ color:#C9C1E6; max-width:70ch; }
+  .cookies button{
+    font-family:'Familjen Grotesk',sans-serif; font-weight:600; font-size:15px;
+    color:var(--indigo); background:var(--lilac); border:0;
+    border-radius:99px; padding:10px 22px; min-height:42px; cursor:pointer;
+  }
+  .cookies button:hover{ background:#FFFFFF; }
+  .cookies button:focus-visible{ outline:2px solid var(--violet); outline-offset:3px; }
+
   @media (prefers-reduced-motion: reduce){ *{ transition:none !important; animation:none !important; } }
 </style>
 </head>
@@ -271,6 +290,19 @@
   </div>
 </footer>
 
+<div class="cookies" id="cookies" role="region" aria-label="Cookies" hidden>
+  <div class="shell">
+    <p>
+      <span data-lang="nl">Deze website gebruikt geen tracking- of advertentiecookies. Alleen uw taalkeuze wordt lokaal in uw browser bewaard.</span>
+      <span data-lang="en">This website uses no tracking or advertising cookies. Only your language choice is stored locally in your browser.</span>
+    </p>
+    <button type="button" id="cookies-ok">
+      <span data-lang="nl">Akkoord</span>
+      <span data-lang="en">OK</span>
+    </button>
+  </div>
+</div>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -310,6 +342,16 @@
 
   bNl.addEventListener('click', function(){ set('nl'); });
   bEn.addEventListener('click', function(){ set('en'); });
+
+  var CKEY = 'kavio-cookies';
+  var bar = document.getElementById('cookies');
+  var seen = null;
+  try { seen = localStorage.getItem(CKEY); } catch(e){}
+  if (!seen) bar.hidden = false;
+  document.getElementById('cookies-ok').addEventListener('click', function(){
+    bar.hidden = true;
+    try { localStorage.setItem(CKEY, '1'); } catch(e){}
+  });
 })();
 </script>
 
